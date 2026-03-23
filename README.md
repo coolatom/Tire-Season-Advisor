@@ -4,8 +4,8 @@ AccuWeather API is prioritized because of its high speed. But its recently known
 A bunch of Open-Meteo + OpenWeather APIs is designed to show the correct names of the user's location according to the scheme: Open-Meteo API --> Determines the browser's geographical coordinates in Latitude and Longitude parameters. 2. OpenWeather API --> Decodes the coordinates into the name of the settlement (latitude/longitude lookup).
 
 <div>
-  <img src="assets/Light-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in stock Light Mode palette." width = "500">   
-  <img src="assets/Dark-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in custom Dark Mode palette." width = "500">
+  <img src="screenshots/Light-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in stock Light Mode palette." width = "500">   
+  <img src="screenshots/Dark-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in custom Dark Mode palette." width = "500">
 </div>
 
 ---
@@ -17,7 +17,7 @@ You can check out this web application by following this <a href="https://tire-s
 > [!CAUTION]
 > **The application must be given permission to determine geolocation**
 <div>
-  <img src="assets/Location-Needed.png" alt="Screenshot of the Tire Season Advisor app page with notification about geolocation permission requirements" width = "500">
+  <img src="screenshots/Location-Needed.png" alt="Screenshot of the Tire Season Advisor app page with notification about geolocation permission requirements" width = "500">
 </div>
 
 ---
