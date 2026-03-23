@@ -9,7 +9,7 @@ const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 // --- Helper Function to interpret Open-Meteo WMO codes ---
 const getWmoCodeDescription = (code) => {
   const wmoMap = {
-    0: { text: 'Clear sky', icon: Sun },
+    0: { text: {'Clear sky' : 'Clear'}, icon: Sun },
     1: { text: 'Mainly clear', icon: Sun },
     2: { text: 'Partly cloudy', icon: CloudSun },
     3: { text: 'Overcast', icon: Cloudy },
@@ -381,7 +381,7 @@ const App = () => {
                           React.createElement(weather.iconComponent, { className: "w-12 h-12 text-gray-700 mr-4" })
                         )}
                         {weather.source === 'AccuWeather' && (
-                            <img src={`https://developer.accuweather.com/sites/default/files/${weather.icon < 10 ? '0' : ''}${weather.icon}-s.png`} alt={weather.condition} className="w-12 h-12 mr-4"/>
+                            <img src={`https://cdn.discover.swiss/icons/weather/ds-weather-${weather.icon}.svg`} alt={weather.condition} className="w-12 h-12 mr-4"/>
                         )}
                         <div className="flex items-center space-x-4">
                           <Thermometer className="w-12 h-12 text-red-500" />
