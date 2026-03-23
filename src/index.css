@@ -130,7 +130,6 @@
   }
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
-    vertical-align: middle;
   }
   img, video {
     max-width: 100%;
@@ -256,7 +255,7 @@
     @media (width >= 96rem) {
       max-width: 96rem;
     }
-    @media (width =< 800px) {
+    @media (max-width : 800px) {
       .button-label {
         display: none;
       }
@@ -394,7 +393,7 @@
     border-radius: var(--radius-2xl);
   }
   .rounded-full {
-    border-radius: calc(infinity * 1px);
+    border-radius: 9999px;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
