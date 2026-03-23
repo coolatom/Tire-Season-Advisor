@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Tire Season Adviser
+**Tire Season Advisor** is a lightweight, responsive web application that provides real-time tire recommendations based on current weather conditions and geolocation. It helps users decide between summer and winter tires by analyzing temperature thresholds and delivering clear, actionable guidance. Powered by React with Tailwind and AccuWeather & Open-Meteo and OpenWeather APIs. In case AccuWeather API fails (or all free plan requests are exhausted), one of the rest working weather APIs will fall back on it until the user sees the message "Failed to fetch weather data from all available sources."
+AccuWeather API is prioritized because of its high speed. But its recently known disadvantage is the limited number of key requests.
+A bunch of Open-Meteo + OpenWeather APIs is designed to show the correct names of the user's location according to the scheme: Open-Meteo API --> Determines the browser's geographical coordinates in Latitude and Longitude parameters. 2. OpenWeather API --> Decodes the coordinates into the name of the settlement (latitude/longitude lookup).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div>
+  <img src="screenshots/Light-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in stock Light Mode palette." width = "500">   
+  <img src="screenshots/Dark-Mode.png" alt="Screenshot of a Tire Season Advisor app page, colored in custom Dark Mode palette." width = "500">
+</div>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌐 Live Demo
 
-### `npm start`
+You can check out this web application by following this <a href="https://tire-season-advisor.netlify.app/" target="_blank" title="Tire Season Advisor">link</a>.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> [!CAUTION]
+> **The application must be given permission to determine geolocation**
+<div>
+  <img src="screenshots/Location-Needed.png" alt="Screenshot of the Tire Season Advisor app page with notification about geolocation permission requirements" width = "500">
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer              | Technology Used                     | Purpose                                                                 |
+|--------------------|-------------------------------------|-------------------------------------------------------------------------|
+| **Frontend**        | React (JSX)                         | Component-based UI, dynamic rendering, and state management             |
+| **Styling**         | Tailwind CSS (via CDN)              | Utility-first styling with responsive design and dark mode support      |
+| **Icons**           | Lucide React                        | Clean, scalable SVG icons for weather, location, and contact visuals    |
+| **Geolocation**     | HTML5 Geolocation API               | Detects user location for weather lookup                                |
+| **Weather API**     | AccuWeather & Open-Meteo and OpenWeather APIs                     | Fetches live weather data and temperature for tire logic                |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Live Weather Detection**: Uses browser geolocation to fetch current conditions
+- **Tire Logic Engine**: Recommends summer or winter tires based on temperature (10°C cutoff)
+- **Dark Mode Toggle**: Manual theme switching with persistent state via `localStorage`
+- **Responsive UI**: Mobile-friendly layout with adaptive spacing and icon sizing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🎨 Styling Strategy
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tailwind CSS is integrated via CDN for rapid prototyping and minimal setup. This approach avoids build tooling while still enabling:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Responsive layouts (`flex`, `grid`, `gap`, `space-x`);
+- Theming via `dark:` options to render light or dark mode;
+- Dual-Translation via `react-i18next` allows to present UI in Ukrainian and English lang;
+- Utility classes for spacing, typography, borders, and gradients;
+- Shadow settings, loading animation and icons.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Dependencies
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+"dependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.7.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "lucide-react": "^0.539.0",
+    "react": "^19.1.1",
+    "i18next": "^25.5.3",
+    "react-dom": "^19.1.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  }
