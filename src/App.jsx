@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next'; // <-- 1. IMPORT THE HOOK
-import { Thermometer, MapPin, CloudSun, Snowflake, Sun, RefreshCw, AlertTriangle, Loader, Send, Facebook, Github, Linkedin, AtSign, Cloudy, Umbrella, CloudRain, CloudSnow, Search, Map } from 'lucide-react';
+import { Thermometer, MapPin, CloudSun, Snowflake, Sun, RefreshCw, AlertTriangle, Loader, Send, Github, Linkedin, AtSign, Cloudy, Umbrella, CloudRain, CloudSnow, Search, Map } from 'lucide-react';
+
+// --- API KEYS ---
+const ACCUWEATHER_API_KEY = process.env.REACT_APP_ACCUWEATHER_API_KEY;
+const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
 // --- Helper Function to interpret Open-Meteo WMO codes ---
 const getWmoCodeDescription = (code) => {
@@ -42,10 +46,6 @@ const App = () => {
   const [searchResults, setSearchResults] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const [searchError, setSearchError] = useState(null);
-
-  // --- API KEYS ---
-  const ACCUWEATHER_API_KEY = process.env.REACT_APP_ACCUWEATHER_API_KEY;
-  const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
   const handleSearch = useCallback(async (e) => {
     e.preventDefault();
@@ -158,8 +158,7 @@ const App = () => {
     setTireRecommendation(getTireRecommendation(temperatureC));
     setLocation({ lat, lon });
     setError(null);
-  }, [OPENWEATHER_API_KEY, getTireRecommendation]);
-
+  }, [getTireRecommendation]);
 
   // --- PRIMARY DATA FETCH FUNCTION (TIER 1) ---
   const fetchWeatherData = useCallback(async (lat, lon) => {
@@ -444,7 +443,7 @@ const App = () => {
             </div>
           </div>
           <div className="h-full flex flex-col justify-end items-center">
-            <div className="text-center mt-6 text-gray-500 text-sm">
+            <div className="text-center text-gray-500 text-sm">
               <p>{t('developedBy')}</p>
               <div className="flex items-center space-x-10 p-3 rounded-full">
                 <a href="https://github.com/coolatom" target="_blank" rel="noopener noreferrer" title="My page on GitHub">
